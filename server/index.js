@@ -17,7 +17,15 @@ mongoose.connect(process.env.MONGO_URI, {
 }).then(() => console.log("MongoDB connected")).catch(err => console.log(err));
 
 // Routes
+// Serve React build
+app.use(express.static(path.join(__dirname, '../client/dist')));
 
+// API routes here...
+
+// Catch-all to serve React for unmatched routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

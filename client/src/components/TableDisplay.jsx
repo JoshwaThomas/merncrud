@@ -7,7 +7,7 @@ const TableDisplay = () => {
   const [editData, setEditData] = useState(null);
 
   const fetchData = async () => {
-    const res = await fetch('http://localhost:5000/api/users');
+    const res = await fetch('https://merncrud-server.onrender.com/api/users');
     const json = await res.json();
     setData(json);
   };
@@ -17,7 +17,7 @@ const TableDisplay = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/api/users/${id}`, { method: 'DELETE' });
+    await fetch(`https://merncrud-server.onrender.com/api/users/${id}`, { method: 'DELETE' });
     fetchData();
   };
 

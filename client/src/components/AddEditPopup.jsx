@@ -21,8 +21,8 @@ const AddEditPopup = ({ onClose, fetchData, editData }) => {
     e.preventDefault();
     const method = editData ? 'PUT' : 'POST';
     const url = editData
-      ? `http://localhost:5000/api/users/${editData._id}`
-      : 'http://localhost:5000/api/users';
+      ? `https://merncrud-server.onrender.com/api/users/${editData._id}`
+      : 'https://merncrud-server.onrender.com/api/users';
 
     await fetch(url, {
       method,
